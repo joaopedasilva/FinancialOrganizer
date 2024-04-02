@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\jpeva\\Projects\\financial-organizer\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\financial-organizer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\financial-organizer.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\jpeva\\Projects\\financial-organizer\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\jpeva\\Projects\\financial-organizer\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jpeva\\Projects\\financial-organizer\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jpeva\\Projects\\financial-organizer\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.financial-organizer.props",
+      "PackagePath": "build\\financial-organizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.financial-organizer.props",
+      "PackagePath": "buildMultiTargeting\\financial-organizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.financial-organizer.props",
+      "PackagePath": "buildTransitive\\financial-organizer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.financial-organizer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

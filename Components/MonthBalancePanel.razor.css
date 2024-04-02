@@ -1,0 +1,28 @@
+.month-balance-panel {
+    width: 50vw;
+    border: 0px solid lightgray;
+    border-radius: 5px;
+    align-content: space-between;
+    margin: 0.5rem;
+}
+
+.month-balance-panel h1 {
+    margin: 0.5rem;
+}
+
+.balance-panel {
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.balance-card, .income-card, .outcome-card {
+    flex: auto;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.income-card {
+    margin: 0 1vw;
+}

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "financial-organizer/1.0.0": {
+        "runtime": {
+          "financial-organizer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "financial-organizer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
