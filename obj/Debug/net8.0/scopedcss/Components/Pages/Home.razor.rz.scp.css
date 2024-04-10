@@ -1,0 +1,15 @@
+.add-transaction-button[b-1u1rrdgcs8] {
+    width: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.bottom-panels[b-1u1rrdgcs8] {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem;
+}

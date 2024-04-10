@@ -1,0 +1,11 @@
+.button-add-transaction[b-8w9vot50hp] {
+    background-color: #4491b2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 0.5rem;
+}
+
+.button-add-transaction:active[b-8w9vot50hp] {
+    background-color: #2a5c71;
+}

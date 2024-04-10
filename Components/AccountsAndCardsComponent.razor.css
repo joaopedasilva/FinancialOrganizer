@@ -1,0 +1,28 @@
+.table-container {
+    margin: 0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: min-content;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+.table-title {
+    background-color: white;
+}
+
+.table-columns-names {
+    background-color: rgb(229, 237, 243);
+}
+
+tr td:first-child {
+    width: 75%;
+}

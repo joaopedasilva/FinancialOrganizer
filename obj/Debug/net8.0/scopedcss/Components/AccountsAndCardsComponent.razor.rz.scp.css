@@ -1,0 +1,28 @@
+.table-container[b-65opih3ywc] {
+    margin: 0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    height: min-content;
+    overflow: auto;
+}
+
+table[b-65opih3ywc] {
+    width: 100%;
+}
+
+thead[b-65opih3ywc] {
+    position: sticky;
+    top: 0;
+}
+
+.table-title[b-65opih3ywc] {
+    background-color: white;
+}
+
+.table-columns-names[b-65opih3ywc] {
+    background-color: rgb(229, 237, 243);
+}
+
+tr td:first-child[b-65opih3ywc] {
+    width: 75%;
+}
