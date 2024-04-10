@@ -1,4 +1,4 @@
-using financial_organizer.Components;
+using FinancialOrganizer.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jpeva\\Projects\\financial-organizer\\financial-organizer.csproj": {}
+    "C:\\Users\\jpeva\\Projects\\FinancialOrganizer\\FinancialOrganizer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jpeva\\Projects\\financial-organizer\\financial-organizer.csproj": {
+    "C:\\Users\\jpeva\\Projects\\FinancialOrganizer\\FinancialOrganizer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jpeva\\Projects\\financial-organizer\\financial-organizer.csproj",
-        "projectName": "financial-organizer",
-        "projectPath": "C:\\Users\\jpeva\\Projects\\financial-organizer\\financial-organizer.csproj",
+        "projectUniqueName": "C:\\Users\\jpeva\\Projects\\FinancialOrganizer\\FinancialOrganizer.csproj",
+        "projectName": "FinancialOrganizer",
+        "projectPath": "C:\\Users\\jpeva\\Projects\\FinancialOrganizer\\FinancialOrganizer.csproj",
         "packagesPath": "C:\\Users\\jpeva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jpeva\\Projects\\financial-organizer\\obj\\",
+        "outputPath": "C:\\Users\\jpeva\\Projects\\FinancialOrganizer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jpeva\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -42,6 +42,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
