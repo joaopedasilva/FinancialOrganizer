@@ -1,10 +1,16 @@
 using FinancialOrganizer.Components;
+using FinancialOrganizer.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddDbContext<FinancialOrganizerDbContext>(options =>
+    options.UseNpgsql(builder.Configuration["ConnectionStrings:DefaultConnection"])
+);
 
 var app = builder.Build();
 
