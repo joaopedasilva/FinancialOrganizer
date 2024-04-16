@@ -1,1 +1,8 @@
-<button type="button" class="button-add-transaction">Add Transaction</button>
+@rendermode InteractiveServer
+
+<button  class="button-add-transaction" @onclick="OnClick">Add Transaction</button>
+
+@code {
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+}

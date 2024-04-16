@@ -1,9 +1,33 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
 <MonthBalancePanel />
-<div class="add-transaction-button"><AddTransactionButton /></div>
+<div class="add-transaction-button"><AddTransactionButton OnClick="OpenModalWindow" /></div>
 <div class="bottom-panels">
     <TransactionsComponent /><CategoriesComponent /><AccountsAndCardsComponent />
 </div>
+
+@if (ShowModal) {
+    <TransactionsModal OnClick="CloseModalWindow" />
+}
+
+@code {
+    private bool ShowModal { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ShowModal = false;
+    }
+
+    private void OpenModalWindow()
+    {
+        ShowModal = true;
+    }
+
+    private void CloseModalWindow()
+    {
+        ShowModal = false;
+    }
+}

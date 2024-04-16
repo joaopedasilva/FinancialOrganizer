@@ -1,0 +1,124 @@
+@inject IDbContextFactory<FinancialOrganizerDbContext> dbContextFactory
+
+<div id="transactions-modal">
+    <div class="modal-content">
+        <div class="add-transaction-header">
+            <p>Add Transaction</p>
+            <button class="close-modal" @onclick="OnClick">&times;</button>
+        </div>
+        <div class="add-transaction-body">
+            <EditForm EditContext="transactionEditContext" OnSubmit="SubmitAsync" FormName="TransactionsForm">
+                <div class="form">
+                    <div class="transaction-description">
+                        <label>
+                            <p>Description</p>
+                            <InputText class="transaction-inputs" @bind-Value="Model!.ProductOrService" />
+                        </label>
+                    </div>
+                    <div class="transaction-price">
+                        <label>
+                            <p>Price</p>
+                            <InputNumber class="transaction-inputs" @bind-Value="Model!.Price" />
+                        </label>
+                    </div>
+                    <div class=transaction-date-and-time>
+                        <label>
+                            <p>Date</p>
+                            <InputDate class="transaction-inputs" @bind-Value="Model!.DateAndTime" />
+                        </label>
+                    </div>
+                    <div class="transaction-category">
+                        <label>
+                            <p>Category</p>
+                            <InputSelect class="transaction-inputs" @bind-Value="Model!.CategoryId">
+                                <option value="">Select Category</option>
+                                @if (categories != null)
+                                {
+                                    foreach (var category in categories)
+                                    {
+                                        <option value="@category.CategoryId">@category.CategoryName</option>
+                                    }
+                                }
+                            </InputSelect>
+                        </label>
+                    </div>
+                    <div class="transaction-payment-method">
+                        <label>
+                            <p>Payment&nbsp;Method</p>
+                            <InputSelect class="transaction-inputs" @bind-Value="Model!.PaymentMethodId">
+                                <option value="">Select Payment Method</option>
+                                @if (paymentMethods != null)
+                                {
+                                    foreach (var paymentMethod in paymentMethods)
+                                    {
+                                        <option value="@paymentMethod.PaymentMethodId">@paymentMethod.PaymentMethodType - @paymentMethod.PaymentMethodIssuer</option>
+                                    }
+                                }
+                            </InputSelect>
+                        </label>
+                    </div>
+                    <div class="transaction-submit-button">
+                        <button type="submit">Confirm</button>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private EditContext? transactionEditContext;
+
+    [SupplyParameterFromForm]
+    private TransactionsFormModel? Model { get; set; }
+
+    private List<Categories>? categories;
+    private List<PaymentMethods>? paymentMethods;
+
+    protected override void OnInitialized() {
+        Model ??= new();
+        transactionEditContext = new(Model);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var dbContext = dbContextFactory.CreateDbContext())
+        {
+            categories = await dbContext.Categories.ToListAsync();
+            paymentMethods = await dbContext.PaymentMethods.ToListAsync();
+        }
+    }
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+    private async Task SubmitAsync() {
+        using (var dbContext = dbContextFactory.CreateDbContext())
+        {
+            if (Model is not null)
+            {
+                dbContext.Transactions.Add(new Transactions()
+                {
+                    ProductName = Model.ProductOrService,
+                    Amount = Model.Price,
+                    PurchaseDateAndTime = Model.DateAndTime.ToUniversalTime(),
+                    Category = dbContext.Categories
+                        .Where(c => c.CategoryId.Equals(Model.CategoryId))
+                        .FirstOrDefault<Categories>(),
+                    PaymentMethod = dbContext.PaymentMethods
+                        .Where(p => p.PaymentMethodId.Equals(Model.PaymentMethodId))
+                        .FirstOrDefault<PaymentMethods>()
+                });
+            }
+            try
+            {
+                await dbContext.SaveChangesAsync();
+                await OnClick.InvokeAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+    }
+}
