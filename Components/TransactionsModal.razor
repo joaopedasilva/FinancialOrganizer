@@ -1,0 +1,62 @@
+<div id="transactions-modal">
+    <div class="modal-content">
+        <div class="add-transaction-header">
+            <p>Add Transaction</p>
+            <button class="close-modal">X</button>
+        </div>
+        <div class="add-transaction-body">
+            <EditForm EditContext="transactionEditContext" OnSubmit="SubmitAsync" FormName="TransactionsForm">
+                <div class="form">
+                    <div>
+                        <label>
+                            <p>Description</p>
+                            <InputText @bind-Value="Model!.ProductOrService" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <p>Price</p>
+                            <InputText @bind-Value="Model!.Price" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <p>Date</p>
+                            <InputDate @bind-Value="Model!.DateAndTime" />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <p>Category</p>
+                            <select>
+                                <option value="Education">Education</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <label>
+                            <p>Payment Method</p>
+                            <select>
+                                <option value="Cash">Cash</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private EditContext? transactionEditContext;
+
+    [SupplyParameterFromForm]
+    private TransactionsFormModel? Model { get; set; }
+
+    protected override void OnInitialized() {
+        Model ??= new();
+        transactionEditContext = new(Model);
+    }
+
+    private async Task SubmitAsync() {}
+}

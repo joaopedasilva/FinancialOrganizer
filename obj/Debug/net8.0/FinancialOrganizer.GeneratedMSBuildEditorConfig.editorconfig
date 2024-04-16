@@ -69,3 +69,7 @@ build_metadata.AdditionalFiles.CssScope = b-8ef17grz7g
 [C:/Users/jpeva/Projects/FinancialOrganizer/Components/TransactionsComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUcmFuc2FjdGlvbnNDb21wb25lbnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hvwtx7mh1d
+
+[C:/Users/jpeva/Projects/FinancialOrganizer/Components/TransactionsModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUcmFuc2FjdGlvbnNNb2RhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-4aujulh6w0
