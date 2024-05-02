@@ -19,3 +19,31 @@ body {
     font-style: normal;
     font-variation-settings: "slnt" 0;
 } */
+
+/* Input* components sytle of transactions modal */
+.form .transaction-inputs {
+    height: 2rem;
+    margin: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.transaction-description input {
+    width: 10rem;
+}
+
+.transaction-price input {
+    width: 4rem;
+}
+
+.transaction-date-and-time input {
+    width: 7rem;
+}
+
+.transaction-category select {
+    width: 9rem;
+}
+
+.transaction-payment-method select {
+    width: 9rem;
+}

@@ -11,14 +11,17 @@
 }
 
 .modal-content {
-    max-width: 75vw;
-    margin: auto;
+    width: fit-content;
+    margin: none;
     border-radius: 5px;
     position: relative;
     top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 0.5rem;
 }
 
-p, button, input {
+p, button {
     margin: 0.5rem;
 }
 
@@ -29,15 +32,42 @@ p, button, input {
     border-radius: 5px;
 }
 
+.add-transaction-header > p {
+    margin: 0.5rem;
+}
+
 .close-modal {
     color: #000000;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 5px;
+    border: none;
     width: 30px;
     height: 30px;
 }
 
 .form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.form > div {
+    margin: 0.5rem 0;
+}
+
+.transaction-submit-button {
+    display: flex;
+    align-items: flex-end;
+}
+
+.transaction-submit-button button {
+    height: 2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    cursor: pointer;
+    line-height: 1rem;
 }

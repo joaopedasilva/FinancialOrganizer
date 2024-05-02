@@ -9,16 +9,14 @@ public class TransactionsFormModel
     public string? ProductOrService { get; set; }
 
     [Required]
-    public string? Price { get; set; }
+    public decimal Price { get; set; }
 
     [Required]
     public DateTime DateAndTime { get; set; }
 
     [Required]
-    [StringLength(25, ErrorMessage = "Product name cannot exceed 25 characters.")]
-    public string? CategoryName { get; set; }
+    public int CategoryId { get; set; }
 
     [Required]
-    [StringLength(25, ErrorMessage = "Product name cannot exceed 25 characters.")]
-    public string? PaymentMethod { get; set; }
+    public int PaymentMethodId { get; set; }
 }

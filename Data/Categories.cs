@@ -12,5 +12,5 @@ public class Categories
     public string? CategoryName { get; set; }
 
     [Required]
-    public string? AmountLimit { get; set; }
+    public decimal AmountLimit { get; set; }
 }
