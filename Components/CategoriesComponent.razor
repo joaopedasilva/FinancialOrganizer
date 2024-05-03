@@ -1,3 +1,5 @@
+@inject IDbContextFactory<FinancialOrganizerDbContext> dbContextFactory
+
 <div class="table-container">
     <table>
         <thead>
@@ -10,18 +12,34 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Education</td>
-                <td>R$ 500,00</td>
-            </tr>
-            <tr>
-                <td>Medicines</td>
-                <td>R$ 120,00</td>
-            </tr>
-            <tr>
-                <td>Food</td>
-                <td>R$ 100,00</td>
-            </tr>
+            @if (categories is not null)
+            {
+                @foreach (var category in categories)
+                {
+                    <tr>
+                        <td>@category.CategoryName</td>
+                        <td>R$ @category.AmountLimit</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2">No categories found</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
+
+@code {
+    private List<Categories>? categories;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var dbContext = dbContextFactory.CreateDbContext())
+        {
+            categories = await dbContext.Categories.ToListAsync();
+        }
+    }
+}
