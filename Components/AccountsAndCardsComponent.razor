@@ -1,3 +1,5 @@
+@inject IDbContextFactory<FinancialOrganizerDbContext> dbContextFactory
+
 <div class="table-container">
     <table>
         <thead>
@@ -10,18 +12,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Education</td>
-                <td>R$ 500,00</td>
-            </tr>
-            <tr>
-                <td>Medicines</td>
-                <td>R$ 120,00</td>
-            </tr>
-            <tr>
-                <td>Food</td>
-                <td>R$ 100,00</td>
-            </tr>
+            @if (paymentMethods is not null)
+            {
+                @foreach (var paymentMethod in paymentMethods)
+                {
+                    <tr>
+                        <td>@paymentMethod.PaymentMethodIssuer - @paymentMethod.PaymentMethodType</td>
+                        <td>R$ 500,00</td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>
+
+@code {
+    private List<PaymentMethods>? paymentMethods;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var context = dbContextFactory.CreateDbContext())
+        {
+            paymentMethods = await context.PaymentMethods.ToListAsync();
+        }
+    }
+}
